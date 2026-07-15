@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import Navbar from "@/components/layout/Navbar";
-import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import FilterBar from "@/components/dashboard/FilterBar";
-import TimesheetTable from "@/components/dashboard/TimesheetTable";
-import Footer from "@/components/dashboard/Footer";
+import Navbar from '@/components/layout/Navbar';
+import DashboardHeader from '@/components/dashboard/DashboardHeader';
+import FilterBar from '@/components/dashboard/FilterBar';
+import TimesheetTable from '@/components/dashboard/TimesheetTable';
+import Footer from '@/components/dashboard/Footer';
 
 export default function DashboardPage() {
   const [filters, setFilters] = useState({
-    search: "",
-    status: "",
-    date: "",
+    search: '',
+    status: '',
+    date: '',
   });
 
   return (

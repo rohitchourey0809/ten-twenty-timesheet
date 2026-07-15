@@ -1,4 +1,4 @@
-import { Download, Plus } from "lucide-react";
+import { Download, Plus } from 'lucide-react';
 
 export default function DashboardHeader() {
   return (

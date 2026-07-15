@@ -1,13 +1,10 @@
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Pagination() {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 px-6 py-4">
       <p className="text-sm text-gray-500">
-        Showing <span className="font-medium">1-5</span> of{" "}
+        Showing <span className="font-medium">1-5</span> of{' '}
         <span className="font-medium">12</span> timesheets
       </p>
 

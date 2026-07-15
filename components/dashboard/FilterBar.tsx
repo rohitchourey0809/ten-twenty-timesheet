@@ -1,34 +1,31 @@
-import { Search, RotateCcw } from "lucide-react";
+'use client';
 
-interface FilterProps {
-  filters: {
-    search: string;
-    status: string;
-    date: string;
-  };
+import { Search, RotateCcw } from 'lucide-react';
 
-  setFilters: React.Dispatch<
-    React.SetStateAction<{
-      search: string;
-      status: string;
-      date: string;
-    }>
-  >;
+type Filters = {
+  search: string;
+  status: string;
+  date: string;
+};
+
+interface FilterBarProps {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
 }
 
-export default function FilterBar({ filters, setFilters }: FilterProps) {
-  const updateFilter = (key: string, value: string) => {
-    setFilters((prev) => ({
-      ...prev,
+export default function FilterBar({ filters, setFilters }: FilterBarProps) {
+  const handleChange = (key: keyof Filters, value: string) => {
+    setFilters((previous) => ({
+      ...previous,
       [key]: value,
     }));
   };
 
-  const resetFilters = () => {
+  const clearFilters = () => {
     setFilters({
-      search: "",
-      status: "",
-      date: "",
+      search: '',
+      status: '',
+      date: '',
     });
   };
 
@@ -38,7 +35,7 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
         rounded-xl
         border
         border-gray-200
-        bg-gray-50
+        bg-white
         p-5
       "
     >
@@ -71,14 +68,14 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
               className="
                 absolute
                 left-3
-                top-3.5
+                top-3
                 text-gray-400
               "
             />
 
             <input
               value={filters.search}
-              onChange={(e) => updateFilter("search", e.target.value)}
+              onChange={(event) => handleChange('search', event.target.value)}
               placeholder="Search employee..."
               className="
                 h-11
@@ -86,7 +83,6 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
                 rounded-lg
                 border
                 border-gray-200
-                bg-white
                 pl-10
                 pr-4
                 text-sm
@@ -109,20 +105,19 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
               text-gray-700
             "
           >
-            Date Range
+            Date
           </label>
 
           <input
             type="date"
             value={filters.date}
-            onChange={(e) => updateFilter("date", e.target.value)}
+            onChange={(event) => handleChange('date', event.target.value)}
             className="
               h-11
               w-full
               rounded-lg
               border
               border-gray-200
-              bg-white
               px-4
               text-sm
               outline-none
@@ -148,14 +143,13 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
 
           <select
             value={filters.status}
-            onChange={(e) => updateFilter("status", e.target.value)}
+            onChange={(event) => handleChange('status', event.target.value)}
             className="
               h-11
               w-full
               rounded-lg
               border
               border-gray-200
-              bg-white
               px-4
               text-sm
               outline-none
@@ -172,17 +166,11 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
           </select>
         </div>
 
-        {/* Actions */}
+        {/* Reset */}
 
-        <div
-          className="
-            flex
-            items-end
-            gap-3
-          "
-        >
+        <div className="flex items-end">
           <button
-            onClick={resetFilters}
+            onClick={clearFilters}
             className="
               flex
               h-11
@@ -191,7 +179,6 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
               rounded-lg
               border
               border-gray-200
-              bg-white
               px-5
               text-sm
               font-medium
@@ -199,23 +186,8 @@ export default function FilterBar({ filters, setFilters }: FilterProps) {
               hover:bg-gray-50
             "
           >
-            <RotateCcw size={15} />
+            <RotateCcw size={16} />
             Reset
-          </button>
-
-          <button
-            className="
-              h-11
-              rounded-lg
-              bg-black
-              px-5
-              text-sm
-              font-medium
-              text-white
-              hover:bg-gray-800
-            "
-          >
-            Apply
           </button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function GET() {
   return NextResponse.json({
@@ -6,14 +6,14 @@ export async function GET() {
     data: [
       {
         id: 1,
-        project: "Tentwenty Dashboard",
-        task: "Create Login UI",
+        project: 'Tentwenty Dashboard',
+        task: 'Create Login UI',
         hours: 8,
       },
       {
         id: 2,
-        project: "Tentwenty Dashboard",
-        task: "Dashboard Table",
+        project: 'Tentwenty Dashboard',
+        task: 'Dashboard Table',
         hours: 6,
       },
     ],

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 
-import Button from "@/components/ui/Button";
-import Checkbox from "@/components/ui/Checkbox";
-import Input from "@/components/ui/Input";
-import { loginSchema, LoginSchema } from "@/lib/login-schema";
+import Button from '@/components/ui/Button';
+import Checkbox from '@/components/ui/Checkbox';
+import Input from '@/components/ui/Input';
+import { loginSchema, LoginSchema } from '@/lib/login-schema';
 
 export default function LoginPage() {
-//   const router = useRouter();
+  //   const router = useRouter();
 
   const {
     register,
@@ -20,8 +20,8 @@ export default function LoginPage() {
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
@@ -30,16 +30,16 @@ export default function LoginPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (
-      data.email === "admin@tentwenty.com" &&
-      data.password === "password123"
+      data.email === 'admin@tentwenty.com' &&
+      data.password === 'password123'
     ) {
-      sessionStorage.setItem("token", "dummy-jwt-token");
+      sessionStorage.setItem('token', 'dummy-jwt-token');
 
-      toast.success("Login Successful!");
-      window.location.href = "/dashboard";
-    //   router.push("/dashboard");
+      toast.success('Login Successful!');
+      window.location.href = '/dashboard';
+      //   router.push("/dashboard");
     } else {
-      toast.error("Invalid email or password");
+      toast.error('Invalid email or password');
     }
   };
 
@@ -51,32 +51,23 @@ export default function LoginPage() {
           <div className="w-full max-w-md">
             {/* Logo */}
             <div className="mb-16">
-              <h1 className="text-3xl font-bold text-[#2F66F6]">
-                ticktock
-              </h1>
+              <h1 className="text-3xl font-bold text-[#2F66F6]">ticktock</h1>
             </div>
 
             {/* Heading */}
             <div className="mb-10">
-              <h2 className="text-4xl font-bold text-gray-900">
-                Welcome back
-              </h2>
+              <h2 className="text-4xl font-bold text-gray-900">Welcome back</h2>
 
-              <p className="mt-2 text-gray-500">
-                Sign in to continue
-              </p>
+              <p className="mt-2 text-gray-500">Sign in to continue</p>
             </div>
 
             {/* Form */}
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6"
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <Input
                 label="Email"
                 type="email"
                 placeholder="name@example.com"
-                {...register("email")}
+                {...register('email')}
                 error={errors.email?.message?.toString()}
               />
 
@@ -84,7 +75,7 @@ export default function LoginPage() {
                 label="Password"
                 type="password"
                 placeholder="••••••••"
-                {...register("password")}
+                {...register('password')}
                 error={errors.password?.message?.toString()}
               />
 
@@ -99,10 +90,7 @@ export default function LoginPage() {
                 </button>
               </div>
 
-              <Button
-                type="submit"
-                loading={isSubmitting}
-              >
+              <Button type="submit" loading={isSubmitting}>
                 Sign In
               </Button>
             </form>
@@ -127,15 +115,12 @@ export default function LoginPage() {
         {/* Right */}
         <section className="hidden lg:flex items-center justify-center bg-[#2F66F6] px-20">
           <div className="max-w-lg">
-            <h2 className="mb-8 text-6xl font-bold text-white">
-              ticktock
-            </h2>
+            <h2 className="mb-8 text-6xl font-bold text-white">ticktock</h2>
 
             <p className="text-lg leading-9 text-blue-100">
               Introducing ticktock, our cutting-edge timesheet management
-              application. Track employee work hours, manage weekly
-              timesheets, and monitor productivity with a clean and modern
-              interface.
+              application. Track employee work hours, manage weekly timesheets,
+              and monitor productivity with a clean and modern interface.
             </p>
           </div>
         </section>
