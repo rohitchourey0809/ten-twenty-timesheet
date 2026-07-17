@@ -4,8 +4,7 @@ export default function Navbar() {
   return (
     <nav className="h-16 border-b border-gray-200 bg-white">
       <div
-        className="
-          mx-auto
+        className=" mx-auto
           flex
           h-full
           max-w-[1400px]

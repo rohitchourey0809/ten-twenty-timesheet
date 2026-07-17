@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
@@ -11,8 +10,6 @@ import Input from '@/components/ui/Input';
 import { loginSchema, LoginSchema } from '@/lib/login-schema';
 
 export default function LoginPage() {
-  //   const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -26,7 +23,6 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: LoginSchema) => {
-    // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     if (
@@ -37,28 +33,33 @@ export default function LoginPage() {
 
       toast.success('Login Successful!');
       window.location.href = '/dashboard';
-      //   router.push("/dashboard");
     } else {
       toast.error('Invalid email or password');
     }
   };
 
   return (
-    <main className="min-h-screen bg-[#F8F9FB]">
+    <main className="min-h-screen bg-white">
       <div className="grid min-h-screen lg:grid-cols-2">
-        {/* Left */}
-        <section className="flex items-center justify-center bg-white px-8 py-12">
-          <div className="w-full max-w-md">
+        {/* LEFT PANEL */}
+        <section className="flex items-center justify-center bg-white">
+          <div className="w-full max-w-[540px] px-20">
             {/* Logo */}
-            <div className="mb-16">
-              <h1 className="text-3xl font-bold text-[#2F66F6]">ticktock</h1>
+            <div className="mb-10">
+              <h1 className="text-[54px] font-bold tracking-tight text-[#2F66F6]">
+                ticktock
+              </h1>
             </div>
 
             {/* Heading */}
             <div className="mb-10">
-              <h2 className="text-4xl font-bold text-gray-900">Welcome back</h2>
+              <h2 className="text-[64px] font-bold leading-none text-[#111827]">
+                Welcome back
+              </h2>
 
-              <p className="mt-2 text-gray-500">Sign in to continue</p>
+              <p className="mt-3 text-[24px] text-gray-500">
+                Sign in to continue
+              </p>
             </div>
 
             {/* Form */}
@@ -90,34 +91,41 @@ export default function LoginPage() {
                 </button>
               </div>
 
-              <Button type="submit" loading={isSubmitting}>
+              <Button
+                type="submit"
+                loading={isSubmitting}
+                className="h-12 w-full rounded-lg bg-[#2F66F6] text-base font-semibold"
+              >
                 Sign In
               </Button>
             </form>
 
             {/* Demo Credentials */}
-            <div className="mt-8 rounded-lg border border-blue-200 bg-blue-50 p-4">
-              <h3 className="mb-2 font-semibold text-blue-700">
+            <div className="mt-8 rounded-lg border border-blue-200 bg-blue-50 p-5">
+              <h3 className="mb-3 text-lg font-semibold text-blue-700">
                 Demo Credentials
               </h3>
 
-              <p className="text-sm">
-                <strong>Email:</strong> admin@tentwenty.com
+              <p className="text-sm text-gray-700">
+                <span className="font-semibold">Email:</span>{' '}
+                admin@tentwenty.com
               </p>
 
-              <p className="text-sm">
-                <strong>Password:</strong> password123
+              <p className="mt-0.5 text-xs text-gray-700">
+                <span className="font-semibold">Password:</span> password123
               </p>
             </div>
           </div>
         </section>
 
-        {/* Right */}
-        <section className="hidden lg:flex items-center justify-center bg-[#2F66F6] px-20">
-          <div className="max-w-lg">
-            <h2 className="mb-8 text-6xl font-bold text-white">ticktock</h2>
+        {/* RIGHT PANEL */}
+        <section className="hidden lg:flex items-center justify-center bg-[#2F66F6]">
+          <div className="max-w-[520px] px-12">
+            <h2 className="text-[88px] font-bold leading-none text-white">
+              ticktock
+            </h2>
 
-            <p className="text-lg leading-9 text-blue-100">
+            <p className="mt-10 text-[28px] leading-[58px] text-white/90">
               Introducing ticktock, our cutting-edge timesheet management
               application. Track employee work hours, manage weekly timesheets,
               and monitor productivity with a clean and modern interface.

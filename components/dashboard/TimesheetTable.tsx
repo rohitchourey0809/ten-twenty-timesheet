@@ -72,20 +72,14 @@ export default function TimesheetTable({ filters }: TimesheetTableProps) {
 
   return (
     <div
-      className="
-        overflow-hidden
-        rounded-xl
-        border
-        border-gray-200
-        bg-white
-      "
+      className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
     >
       {/* Header */}
 
-      <div className="px-6 py-5">
+      <div className="border-b border-gray-200 px-5 py-4">
         <h2
           className="
-            text-lg
+            text-base
             font-semibold
             text-gray-900
           "
@@ -128,7 +122,7 @@ export default function TimesheetTable({ filters }: TimesheetTableProps) {
                     bg-gray-50
                   "
               >
-                <th className="px-6 py-4">
+                <th className="px-5 py-3">
                   <input type="checkbox" />
                 </th>
 
@@ -172,11 +166,11 @@ export default function TimesheetTable({ filters }: TimesheetTableProps) {
                         hover:bg-gray-50
                       "
                 >
-                  <td className="px-6 py-5">
+                  <td className="border-b border-gray-200 px-5 py-4">
                     <input type="checkbox" />
                   </td>
 
-                  <td className="px-6 py-5">
+                  <td className="border-b border-gray-200 px-5 py-4">
                     <div
                       className="
                             flex
@@ -222,19 +216,19 @@ export default function TimesheetTable({ filters }: TimesheetTableProps) {
                     </div>
                   </td>
 
-                  <td className="px-6 py-5 text-sm text-gray-700">
+                  <td className="border-b border-gray-200 px-5 py-4 text-sm text-gray-700">
                     {item.project}
                   </td>
 
-                  <td className="px-6 py-5 text-sm text-gray-700">
+                  <td className="border-b border-gray-200 px-5 py-4 text-sm text-gray-700">
                     {item.date}
                   </td>
 
-                  <td className="px-6 py-5 text-sm font-medium">
+                  <td className="border-b border-gray-200 px-5 py-4 text-sm font-medium">
                     {item.hours}
                   </td>
 
-                  <td className="px-6 py-5">
+                  <td className="border-b border-gray-200 px-5 py-4">
                     <span
                       className={`
                             rounded-full
@@ -256,7 +250,7 @@ export default function TimesheetTable({ filters }: TimesheetTableProps) {
                     </span>
                   </td>
 
-                  <td className="relative px-6 py-5">
+                  <td className="relative border-b border-gray-200 px-5 py-4">
                     <button
                       onClick={() =>
                         setOpenMenu(openMenu === item.id ? null : item.id)
